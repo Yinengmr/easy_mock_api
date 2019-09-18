@@ -82,7 +82,11 @@ app.get('/api/list', function (req, res, next) {
 
 app.get('/tt',function(req,res,next){
 	var data = {
-		'name':'请求参数name:'+req.query.name
+		'rv':200,
+		'success':true,
+		'data':{
+			'name':'请求参数name:'+req.query.name
+		}
 	}
 	res.json(data);
 });

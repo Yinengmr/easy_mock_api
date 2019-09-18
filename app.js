@@ -2,6 +2,7 @@ var express = require('express');
 var reactViews = require('express-react-views');
 var bodyParser = require('body-parser');
 var fs = require('fs');
+var shelljs = require('shelljs');
 
 var app = express();
 app.set('views', __dirname + '/views');
@@ -79,6 +80,12 @@ app.get('/api/list', function (req, res, next) {
   res.render('api_list', { title:'API LIST',json_list: url_list});
 });
 
+app.get('/tt',function(req,res,next){
+	var data = {
+		'name':'请求参数name:'+req.query.name
+	}
+	res.json(data);
+});
 
 app.post('/api/post', function(req, res, next){
 	if(req.body.url_path==null||req.body.json_text==null){
